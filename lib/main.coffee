@@ -72,6 +72,7 @@ module.exports =
           return []
         output = []
         for entry in result.errors
+          continue unless entry?
           message = if entry.message? then entry.message else entry.reason
           column = if entry.column? then entry.column else entry.character
           padding = if atom.config.get("linter-jslint.jslintVersion") == '2015-05-08' then 0 else -1
