@@ -75,9 +75,21 @@ module.exports =
           continue unless entry?
           message = if entry.message? then entry.message else entry.reason
           column = if entry.column? then entry.column else entry.character
-          padding = if atom.config.get("linter-jslint.jslintVersion") == '2015-05-08' then 0 else -1
-          pointStart = [entry.line + padding, column + padding]
-          pointEnd = [entry.line + padding, column + message.length + padding]
+          pointStart = [entry.line, column]
+          pointEnd = [entry.line, column + message.length]
+
+          # Padding for jslint.edition > 2015-05-08
+          if atom.config.get("linter-jslint.jslintVersion") != '2015-05-08'
+            pointStart = [pointStart[0] - 1, pointStart[1] - 1]
+            pointEnd = [pointEnd[0] - 1, pointEnd[1] - 1]
+            if entry.raw == "Expected '{a}' at column {b}, not column {c}."
+              console.log 'good catch'
+              message = entry.raw
+                .replace("{a}", entry.a)
+                .replace("{b}", entry.b - 1)
+                .replace("{c}", entry.c - 1)
+                .replace("{d}", entry.d)
+
           if entry.code in infos
             type = 'Info'
           else if entry.code in warnings
