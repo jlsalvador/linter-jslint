@@ -49,10 +49,11 @@ module.exports =
     helpers = require('atom-linter')
     #reporter = require('jshint-json') # a string path
     warnings = [
-      'todo_comment'
+      'unused_a',
     ]
     infos = [
       'nested_comment'
+      'todo_comment'
       'too_long'
     ]
 
