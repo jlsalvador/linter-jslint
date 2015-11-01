@@ -84,7 +84,6 @@ module.exports =
             pointStart = [pointStart[0] - 1, pointStart[1] - 1]
             pointEnd = [pointEnd[0] - 1, pointEnd[1] - 1]
             if entry.raw == "Expected '{a}' at column {b}, not column {c}."
-              console.log 'good catch'
               message = entry.raw
                 .replace("{a}", entry.a)
                 .replace("{b}", entry.b - 1)
