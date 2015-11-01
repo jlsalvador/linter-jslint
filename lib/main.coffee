@@ -49,7 +49,8 @@ module.exports =
     helpers = require('atom-linter')
     #reporter = require('jshint-json') # a string path
     warnings = [
-      'unused_a',
+      'unused_a'
+      'empty_block'
     ]
     infos = [
       'nested_comment'
