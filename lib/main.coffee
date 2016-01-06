@@ -63,7 +63,6 @@ module.exports =
             config = JSON.parse(fs.readFileSync(jslintrcPath, "utf-8"))
           catch err
             console.log "Error reading config file \"" + jslintrcPath + "\": " + err  if err.code isnt "ENOENT"
-        console.log config
 
         text = textEditor.getText()
 
