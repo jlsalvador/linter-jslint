@@ -8,7 +8,7 @@ module.exports =
       title: "JSLint version:"
       type: "string"
       default: "latest"
-      enum: ["latest", "2015-05-08", "2014-07-08", "2014-04-21", "2014-02-06", "2014-01-26", "2013-11-23", "2013-09-22", "2013-08-26", "2013-08-13", "2013-02-03"]
+      enum: ["latest", "es6", "es5", "2015-05-08", "2014-07-08", "2014-04-21", "2014-02-06", "2014-01-26", "2013-11-23", "2013-09-22", "2013-08-26", "2013-08-13", "2013-02-03", "2012-02-03"]
     disableWhenNoJslintrcFileInPath:
       type: 'boolean'
       default: false
@@ -77,8 +77,8 @@ module.exports =
           pointStart = [entry.line, column]
           pointEnd = [entry.line, column + message.length]
 
-          # Padding for jslint.edition > 2015-05-08
-          if atom.config.get("linter-jslint.jslintVersion") != '2015-05-08'
+          # Padding for jslint.edition > 2014
+          if atom.config.get("linter-jslint.jslintVersion").match /^201[0-4]/
             pointStart = [pointStart[0] - 1, pointStart[1] - 1]
             pointEnd = [pointEnd[0] - 1, pointEnd[1] - 1]
             if entry.raw == "Expected '{a}' at column {b}, not column {c}."
