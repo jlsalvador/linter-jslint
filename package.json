@@ -1,7 +1,7 @@
 {
   "name": "linter-jslint",
   "main": "./lib/main",
-  "version": "10.1.1",
+  "version": "10.2.0",
   "description": "Linter plugin for JavaScript, using jslint",
   "repository": "https://github.com/jlsalvador/linter-jslint.git",
   "license": "MIT",
