@@ -1,14 +1,18 @@
 {
   "name": "linter-jslint",
   "main": "./lib/main",
-  "version": "10.2.0",
+  "version": "11.0.0",
   "description": "Linter plugin for JavaScript, using jslint",
   "repository": "https://github.com/jlsalvador/linter-jslint.git",
   "license": "MIT",
   "dependencies": {
-    "atom-linter": "^4.3.4",
+    "atom-linter": "^5.0.1",
+    "atom-package-deps": "^4.0.1",
     "jslint": "^0.9.5"
   },
+  "package-deps": [
+    "linter"
+  ],
   "providedServices": {
     "linter": {
       "versions": {
